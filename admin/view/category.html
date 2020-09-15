@@ -1,3 +1,26 @@
-<div ng-controller="CategoryCtrl">
-  {{ result }}
+<div ng-controller="CategoryCtrl" class="category-block">
+  <h5>All Category:</h5>
+  <div ng-repeat="(index,cat) in category" class="list">
+    <span class="category-title">{{ cat }}</span>
+    <span class="material-icons" ng-click="edit(index)">create</span>
+    <span class="material-icons" ng-click="remove(index)">delete_forever</span>
+  </div>
+  <div ng-if="category.length == 0" class="list red">No Category</div>
+  
+  <h5>Add Category:</h5>
+  <div class="form-group">
+    <input type="text" ng-model="NewCategory" placeholder="New Category" /><br /><br />
+    <!-- Colored raised button -->
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" ng-click="add()">Button</button>
+  </div>
+  
+  <dialog class="mdl-dialog">
+    <h5>Edit Category:</h5>
+    <div class="form-group">
+      <input type="text" ng-model="EditCategory" />
+    </div>
+    <button type="button" class="mdl-button mdl-button--raised mdl-button--colored" ng-click="change()">Submit</button><br /><br />
+    <button type="button" class="mdl-button mdl-button--raised close">Close</button>
+  </dialog>
+  
 </div>

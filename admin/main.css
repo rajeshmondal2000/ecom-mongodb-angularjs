@@ -1,0 +1,49 @@
+.list {
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr;
+  border-radius: 5px;
+  align-items: center;
+  border: 1px solid #E5E5E5;
+  padding: 1em;
+  margin: 0.5em;
+  background: #00897b;
+  color: #fff;
+}
+
+.category-block {
+  padding: 1em;
+}
+
+.category-block {
+  font-weight: bold;
+}
+
+.category-block h5 {
+  padding: 0 0.5em;
+  color: #19227c;
+  text-decoration: underline;
+}
+
+.red {
+  background: #d84315;
+}
+
+.form-group {
+  padding: 1em;
+}
+
+input {
+  width: 90%;
+  border-radius: 5px;
+  border: 1px solid #E5E5E5;
+  padding: 1em;
+  display: block;
+}
+
+input:focus {
+  outline: none;
+}
+
+.category-block button {
+  width: 100%;
+}

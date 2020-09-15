@@ -43,5 +43,5 @@ module.exports = async (req, res) => {
   const users = await collection.find({}).toArray()
 
   // Respond with a JSON string of all users in the collection
-  res.status(200).json({ users })
+  res.send(users)
 }

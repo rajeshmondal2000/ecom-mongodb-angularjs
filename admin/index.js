@@ -1,5 +1,6 @@
 var app = angular.module('AdminApp', ["ngRoute"])
 
+
 // AngularJS Routing
 
 app.config(function($routeProvider) {
@@ -7,18 +8,37 @@ app.config(function($routeProvider) {
     .when("/", {
       templateUrl: 'view/home.html'
     })
-    .when("/", {
+    .when("/category", {
       templateUrl: 'view/category.html'
     })
 });
 
 // Category Controller
 
-app.controller('CategoryCtrl', ($scope, $http, Category)=>{
-  $http.get("https://basirhat-2019.firebaseio.com/message.json").then(function(response) {
-    $scope.result = response.data;
-  });
-  
+app.controller('CategoryCtrl', ($scope, Category)=>{
+  $scope.category = Category.read()
+  $scope.remove = (index)=>{
+    $scope.category.splice(index, 1)
+  }
+  $scope.add = ()=>{
+    Category.create($scope.NewCategory)
+    $scope.NewCategory = ""
+  }
+  $scope.edit = (index)=>{
+    var dialog = document.querySelector('dialog');
+    dialog.showModal();
+    dialog.querySelector('.close').addEventListener('click',()=> {
+      dialog.close();
+    });
+    $scope.EditCategory = $scope.category[index]
+    $scope.position = index
+  }
+  $scope.position = 0
+  $scope.change = ()=>{
+    $scope.category[$scope.position] = $scope.EditCategory
+    var dialog = document.querySelector('dialog')
+    dialog.close()
+  }
 })
 
 
@@ -26,13 +46,15 @@ app.controller('CategoryCtrl', ($scope, $http, Category)=>{
 
 app.factory('Category', ($http)=>{
   var factory = {}
-  var category = []
+  var category = ["Electronic", "Grocery", "Books", "Toys", "Beauty Products"]
   
   // Get Category
-  factory.getCategory = ()=>{
-    $http.get("https://basirhat-2019.firebaseio.com/resturant/users.json").then(function(response) {
-        
-    });
+  factory.read = ()=>{
+    return category
+  }
+  
+  factory.create = (categoryName)=>{
+    category.push(categoryName)
   }
   
   return factory;
