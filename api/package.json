@@ -1,0 +1,8 @@
+{
+  "name": "mongodb-api",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "mongodb":"3.6.2"
+  }
+}
