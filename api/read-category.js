@@ -1,4 +1,3 @@
-const uris = "mongodb+srv://codecheap:rajesh@2000@cluster0.gaifp.mongodb.net/test?retryWrites=true&w=majority";
 
 // Import Dependencies
 const url = require('url')
@@ -34,7 +33,7 @@ async function connectToDatabase(uri) {
 module.exports = async (req, res) => {
   // Get a database connection, cached or otherwise,
   // using the connection string environment variable as the argument
-  const db = await connectToDatabase(uris)
+  const db = await connectToDatabase(process.env.MONGO_URL)
 
   // Select the "users" collection from the database
   const collection = await db.collection('category')
