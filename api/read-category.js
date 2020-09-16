@@ -1,4 +1,4 @@
-const uris = "mongodb+srv://rajeshmondal9007@gmail.com:rajesh@2000@cluster0.gaifp.mongodb.net/test?retryWrites=true&w=majority";
+const uris = "mongodb+srv://codecheap:rajesh@2000@cluster0.gaifp.mongodb.net/test?retryWrites=true&w=majority";
 
 // Import Dependencies
 const url = require('url')
