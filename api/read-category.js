@@ -1,4 +1,4 @@
-const uris = "mongodb+srv://rajeshmondal9007%40gmail.com:rajesh%402000@cluster0.gaifp.mongodb.net/test?retryWrites=true&w=majority";
+const uris = "mongodb+srv://rajeshmondal9007@gmail.com:rajesh@2000@cluster0.gaifp.mongodb.net/test?retryWrites=true&w=majority";
 
 // Import Dependencies
 const url = require('url')
@@ -21,6 +21,7 @@ async function connectToDatabase(uri) {
 
   // Select the database through the connection,
   // using the database path of the connection string
+  console.log(url.parse(uri).pathname.substr(1))
   const db = await client.db(url.parse(uri).pathname.substr(1))
 
   // Cache the database connection and return the connection
