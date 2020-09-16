@@ -1,5 +1,4 @@
-
-const uri = "mongodb+srv://rajeshmondal9007@gmail.com:Rajesh@2000@cluster0.gaifp.mongodb.net/test?retryWrites=true&w=majority";
+const uris = "mongodb+srv://rajeshmondal9007@gmail.com:rajesh@2000@cluster0.gaifp.mongodb.net/test?retryWrites=true&w=majority";
 
 // Import Dependencies
 const url = require('url')
@@ -34,7 +33,7 @@ async function connectToDatabase(uri) {
 module.exports = async (req, res) => {
   // Get a database connection, cached or otherwise,
   // using the connection string environment variable as the argument
-  const db = await connectToDatabase(uri)
+  const db = await connectToDatabase(uris)
 
   // Select the "users" collection from the database
   const collection = await db.collection('category')
